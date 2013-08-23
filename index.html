@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SPEED(mph)</title>
+
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8">
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady(){
+	navigator.geolocation.getCurrentPosition(onSuccess, onError);
+}
+
+function onSuccess(position){
+	var element = document.getElementById('geolocation');
+	element.innerHTML = '<h1>'+round(position.coords.speed/2.236)+'</h1>';
+}
+
+function onError(error){
+}
+
+</script>
+</head>
+<style>
+body
+{
+background-color:rgb(0,0,0);
+color:rgb(0,255,255);
+}
+p
+{
+background-color:rgb(0,0,0);
+color:rgb(0,255,255);
+}
+</style>
+<body>
+	
+	<p id="geolocation">000</p>
+</body>
+</html>
